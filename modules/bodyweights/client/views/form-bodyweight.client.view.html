@@ -1,0 +1,38 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.bodyweight._id ? 'Edit Bodyweight' : 'New Bodyweight'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.bodyweightForm" class="form-horizontal" data-ng-submit="vm.save(vm.form.bodyweightForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="date">Date</label>
+          <input name="date" type="date" ng-model="vm.bodyweight.date" id="date" class="form-control" placeholder="date" required>
+           <div ng-messages="vm.form.bodyweightForm.date.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Bodyweight date is required.</p>
+          </div> 
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="max">Max</label>
+          <input name="max" type="number" min="0" ng-model="vm.bodyweight.max" id="max" class="form-control" placeholder="max" required>
+           <div ng-messages="vm.form.bodyweightForm.max.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Bodyweight max is required.</p>
+          </div> 
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="min">Min</label>
+          <input name="min" type="number" min="0" ng-model="vm.bodyweight.min" id="min" class="form-control" placeholder="min" required>
+           <div ng-messages="vm.form.bodyweightForm.min.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Bodyweight min is required.</p>
+          </div> 
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.bodyweight._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>
